@@ -12,14 +12,26 @@ class AbstractMelonOrder(object):
         self.shipped = False
         self.order_type = None
         self.tax = None
+        self.christmas = False
 
     def get_total(self):
         """Calculate price, including tax."""
 
         base_price = 5
+
+        if self.christmas == True:
+            base_price = base_price * 1.5
+
         total = (1 + self.tax) * self.qty * base_price
 
         return total
+
+    # def is_christmas(self):
+
+    #     if self.christmas == True:
+    #         base_price = base_price * 1.5
+
+    #     return base_price
 
     def mark_shipped(self):
         """Record the fact than an order has been shipped."""
