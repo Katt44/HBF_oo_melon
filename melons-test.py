@@ -52,6 +52,11 @@ class InternationalMelonOrder(AbstractMelonOrder):
         self.country_code = country_code
         self.order_type = "international"
         self.tax = 0.17
+        
+        if qty < 10:
+            base_price = 8
+
+
 
 
     def get_country_code(self):
